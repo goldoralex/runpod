@@ -18,8 +18,9 @@ RUN curl -fsSL https://ollama.com/install.sh | sh
 RUN pip install open-webui hf_transfer
 
 # --- 3. Configuration des Variables d'Environnement ---
-# Pour qu'Ollama écoute sur toutes les interfaces (important dans Docker)
-ENV OLLAMA_HOST=0.0.0.0
+# Plus besoin de OLLAMA_HOST, on laisse le défaut (localhost)
+# On s'assure que Open-WebUI regarde au bon endroit
+ENV OLLAMA_BASE_URL=http://localhost:11434
 # Port par défaut d'Open-WebUI
 ENV PORT=8080
 # Variable pour ton modèle par défaut (tu pourras la changer sur RunPod)
