@@ -14,7 +14,8 @@ RUN curl -fsSL https://ollama.com/install.sh | sh
 # --- 2. Installation de Open-WebUI ---
 # On utilise pip. Open-WebUI a besoin de Python 3.11+, 
 # l'image ubuntu24.04 a généralement une version récente.
-RUN pip install open-webui
+# On ajoute hf_transfer pour accélérer les téléchargements Hugging Face
+RUN pip install open-webui hf_transfer
 
 # --- 3. Configuration des Variables d'Environnement ---
 # Pour qu'Ollama écoute sur toutes les interfaces (important dans Docker)
